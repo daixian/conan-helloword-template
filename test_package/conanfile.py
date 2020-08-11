@@ -10,7 +10,6 @@ class HelloWorldTestConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     generators = "cmake"
     default_options = {"dlog:shared": False,
-                       "opencv:shared": True,
                        "boost:without_test": True,
                        "poco:enable_data_sqlite": False}
 

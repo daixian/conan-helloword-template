@@ -33,11 +33,11 @@ endfunction(assign_source_group)
 assign_source_group(${SOURCE_LIST})
 message(STATUS "SOURCE_LIST = ${SOURCE_LIST}")
 
-# 如果是生成可执行文件
+# 生成可执行文件
 add_executable(${SUB_NAME}.out
                ${SOURCE_LIST})
 
-# 如果是生成库
+# 生成库
 if(HELLOWORLD_BUILD_SHARED)
     if(win32)
         add_definitions(-D HELLOWORLD_DLL)
