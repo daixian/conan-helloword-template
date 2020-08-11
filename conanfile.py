@@ -40,8 +40,7 @@ class HelloWorldConan(ConanFile):
         转换python的设置到CMake
         '''
         cmake = CMake(self)
-        # 目前没有写导出类,所以实际上不能支持BUILD_SHARED
-        cmake.definitions["CVSYSTEM_BUILD_SHARED"] = self.options.shared
+        cmake.definitions["HELLOWORLD_BUILD_SHARED"] = self.options.shared
         return cmake
 
     def build(self):

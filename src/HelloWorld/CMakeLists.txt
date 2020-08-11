@@ -39,6 +39,11 @@ add_executable(${SUB_NAME}.out
 
 # 如果是生成库
 if(HELLOWORLD_BUILD_SHARED)
+    if(win32)
+        add_definitions(-D HELLOWORLD_DLL)
+        add_definitions(-D HELLOWORLD_FUNC_EXPORTS)
+    endif()
+    
     add_library(${SUB_NAME}
                 SHARED
                 ${SOURCE_LIST})

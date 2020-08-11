@@ -26,7 +26,7 @@ option(HELLOWORLD_BUILD_SHARED "HELLOWORLD_BUILD_SHARED" OFF)
 message(STATUS "HELLOWORLD_BUILD_SHARED = ${HELLOWORLD_BUILD_SHARED}")
 
 add_definitions(-D DLOG_UTF8)
-add_definitions(-D _NO_ASYNCRTIMP)
+# add_definitions(-D _NO_ASYNCRTIMP)
 
 # 设置生成一个VS工程里的文件夹
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -43,7 +43,7 @@ set(RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_subdirectory(HelloWorld)
 
-# if(HelloWorld_BUILD_TESTS)
+# if(HELLOWORLD_BUILD_TESTS)
 # # 使能测试
 # enable_testing()
 # include(CTest)
