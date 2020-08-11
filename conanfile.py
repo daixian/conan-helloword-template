@@ -16,7 +16,7 @@ class HelloWorldConan(ConanFile):
     license = "This project is licensed under GLWTPL"
     author = "daixian<amano_tooko@qq.com>"
     url = "https://github.com/daixian/conan-helloword-template"
-    description = "使用自己的HelloWorld模板构建的工程"
+    description = "使用自己的初始模板构建的工程"
     topics = ("opencv", "daixian")
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
