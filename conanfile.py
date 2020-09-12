@@ -31,7 +31,7 @@ class HelloWorldConan(ConanFile):
         # 通常引用这些个库
         self.requires("boost/1.71.0")
         self.requires("eigen/3.3.7")
-        self.requires("poco/[>=1.10.1]@daixian/stable")
+        self.requires("poco/[>=1.10.1]")
         self.requires("dlog/[>=2.5.2]@daixian/stable")
         self.requires("xuexuejson/[>1.1.0]@daixian/stable")
 
