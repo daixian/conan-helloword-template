@@ -6,6 +6,7 @@ import sys
 import io
 import getopt
 
+
 class ReplaceNameProc:
     '''用于给这个项目工程改名'''
     # 类变量
@@ -49,6 +50,9 @@ class ReplaceNameProc:
 
 
 def main(argv):
+    '''
+    使用方法: python.exe CreateProjectTemplate.py --name xuexuesharp --dir ./
+    '''
     try:
         # http://www.runoob.com/python/python-command-line-arguments.html?tdsourcetag=s_pcqq_aiomsg
         # 返回值由两个元素组成：第一个是（选项，值）对的列表;第二个是剥离选项列表后留下的程序参数列表（这是第一个参数的尾部切片）。
