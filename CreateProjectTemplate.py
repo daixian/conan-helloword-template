@@ -73,6 +73,9 @@ def main(argv):
     # print("abs path is %s" % (__file__))
     abs_dir = abs_file[:abs_file.rfind("\\")]   # windows下用\\分隔路径，linux下用/分隔路径
 
+    # 是否设置了名字参数
+    isSetNameParam = False
+
     # 所有的选项部分
     for opt, arg in opts:
         if opt in ("-h", "--help"):
@@ -80,12 +83,17 @@ def main(argv):
             sys.exit()
         elif opt in ("-n", "--name"):
             name = arg
+            isSetNameParam = True
         elif opt in ("-t", "--target"):
             target = arg
         elif opt in ("-d", "--dir"):
             abs_dir = arg
 
-    print("传入的项目名称:" + name)
+    if isSetNameParam:
+        print("传入的项目名称:" + name)
+    else:
+        print("必须要设置一个项目名称,使用--name参数!")
+        sys.exit()
 
     # 所有的参数部分
     for arg in args:
