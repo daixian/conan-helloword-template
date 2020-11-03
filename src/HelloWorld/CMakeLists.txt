@@ -61,6 +61,9 @@ message(STATUS "CONAN_LIBS = ${CONAN_LIBS}")
 target_include_directories(${SUB_NAME} PRIVATE ${CMAKE_SOURCE_DIR})
 target_link_libraries(${SUB_NAME} PRIVATE ${CONAN_LIBS} ${CMAKE_THREAD_LIBS_INIT})
 
+target_include_directories(${SUB_NAME}.out PRIVATE ${CMAKE_SOURCE_DIR})
+target_link_libraries(${SUB_NAME}.out PRIVATE ${CONAN_LIBS} ${CMAKE_THREAD_LIBS_INIT})
+
 # if(WIN32)
 #     #链接某些自定义的依赖的库
 #     target_include_directories(${SUB_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../DShow)
