@@ -33,6 +33,11 @@ endfunction(assign_source_group)
 assign_source_group(${SOURCE_LIST})
 message(STATUS "SOURCE_LIST = ${SOURCE_LIST}")
 
+# 增加lib搜索文件夹,注意需要在add_executable之前
+# https://stackoverflow.com/questions/28597351/how-do-i-add-a-library-path-in-cmake
+# set(NATNETSDK_LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../NatNetSDK/lib/x64")
+# link_directories(${NATNETSDK_LIB_DIR})
+
 # 生成可执行文件
 add_executable(${SUB_NAME}.out
                ${SOURCE_LIST})
