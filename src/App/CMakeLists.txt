@@ -48,7 +48,7 @@ message(STATUS "CONAN_LIBS = ${CONAN_LIBS}")
 
 
 target_include_directories(${SRC_NAME}.out PRIVATE ${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../)
-target_link_libraries(${SRC_NAME}.out PRIVATE ${CONAN_LIBS} ${CMAKE_THREAD_LIBS_INIT} "HelloWorld")
+target_link_libraries(${SRC_NAME}.out PRIVATE ${CONAN_LIBS} ${CMAKE_THREAD_LIBS_INIT} ${SRC_NAME})
 
 # if(WIN32)
 #     #链接某些自定义的依赖的库

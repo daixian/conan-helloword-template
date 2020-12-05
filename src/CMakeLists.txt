@@ -54,7 +54,7 @@ if(HELLOWORLD_BUILD_SHARED)
     endif()
 endif()
 
-add_subdirectory(HelloWorld)
+add_subdirectory(${SRC_NAME})
 add_subdirectory(App)
 
 # 如果构建共享库

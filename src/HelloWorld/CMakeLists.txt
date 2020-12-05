@@ -52,8 +52,8 @@ target_link_libraries(${SRC_NAME} PRIVATE ${CONAN_LIBS} ${CMAKE_THREAD_LIBS_INIT
 
 # if(WIN32)
 #     #链接某些自定义的依赖的库
-#     target_include_directories(${SUB_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../DShow)
-#     target_link_libraries(${SUB_NAME} PRIVATE baseclasses)
+#     target_include_directories(${SRC_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../DShow)
+#     target_link_libraries(${SRC_NAME} PRIVATE baseclasses)
 # endif()
 
 # 全都安装到根目录
