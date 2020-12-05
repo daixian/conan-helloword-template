@@ -30,6 +30,10 @@ class ReplaceNameProc:
             self.dirPath, "src", "CMakeLists.txt"))
         self.ReplaceOneFile(os.path.join(
             self.dirPath, "src", "HelloWorld", "CMakeLists.txt"))
+        self.ReplaceOneFile(os.path.join(
+            self.dirPath, "src", "App", "CMakeLists.txt"))
+        self.ReplaceOneFile(os.path.join(
+            self.dirPath, "src", "Shared", "CMakeLists.txt"))
 
         # 修改文件夹的名字
         os.renames(os.path.join(self.dirPath, "src", "HelloWorld"),
@@ -42,7 +46,9 @@ class ReplaceNameProc:
         content = f1.read()
         f1.close()
 
+        # 替换正好匹配的情况
         conRep = content.replace(self.defaultName, self.projectName)
+        # 替换全大写的情况
         conRep = conRep.replace(self.defaultName.upper(),
                                 self.projectName.upper())
         with open(filePath, "w", encoding='utf-8') as f2:

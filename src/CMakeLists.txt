@@ -36,12 +36,31 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/install CACHE PATH "Install directory" FORCE)
 endif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 
-#设置文件输出的目录
+# 设置文件输出的目录
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 set(RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+# 这个模块的名字
+set(SRC_NAME "HelloWorld")
+
+set(HELLOWORLD_BUILD_SHARED TRUE)
+
+# 如果构建共享库
+if(HELLOWORLD_BUILD_SHARED)
+    if(WIN32)
+        add_definitions(-D HELLOWORLD_DLL)
+        add_definitions(-D HELLOWORLD_FUNC_EXPORTS)
+    endif()
+endif()
+
 add_subdirectory(HelloWorld)
+add_subdirectory(App)
+
+# 如果构建共享库
+if(HELLOWORLD_BUILD_SHARED)
+    add_subdirectory(Shared)
+endif()
 
 # if(HELLOWORLD_BUILD_TESTS)
 # # 使能测试

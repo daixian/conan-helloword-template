@@ -3,6 +3,7 @@
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+
 # 定义UNICODE会是TCHAR为wchar
 # add_definitions(-D UNICODE)
 if(WIN32)
@@ -36,24 +37,23 @@ message(STATUS "SOURCE_LIST = ${SOURCE_LIST}")
 # set(NATNETSDK_LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../NatNetSDK/lib/x64")
 # link_directories(${NATNETSDK_LIB_DIR})
 
-# 生成库
-add_library(${SRC_NAME}
-            STATIC
-            ${SOURCE_LIST})
-
+# 生成可执行文件
+add_executable(${SRC_NAME}.out
+               ${SOURCE_LIST})
 
 find_package (Threads)
 
 message(STATUS "CMAKE_SOURCE_DIR = ${CMAKE_SOURCE_DIR}")
 message(STATUS "CONAN_LIBS = ${CONAN_LIBS}")
 
-target_include_directories(${SRC_NAME} PRIVATE ${CMAKE_SOURCE_DIR})
-target_link_libraries(${SRC_NAME} PRIVATE ${CONAN_LIBS} ${CMAKE_THREAD_LIBS_INIT})
+
+target_include_directories(${SRC_NAME}.out PRIVATE ${CMAKE_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/../)
+target_link_libraries(${SRC_NAME}.out PRIVATE ${CONAN_LIBS} ${CMAKE_THREAD_LIBS_INIT} "HelloWorld")
 
 # if(WIN32)
 #     #链接某些自定义的依赖的库
-#     target_include_directories(${SUB_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../DShow)
-#     target_link_libraries(${SUB_NAME} PRIVATE baseclasses)
+#     target_include_directories(${SRC_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../DShow)
+#     target_link_libraries(${SRC_NAME} PRIVATE baseclasses)
 # endif()
 
 # 全都安装到根目录

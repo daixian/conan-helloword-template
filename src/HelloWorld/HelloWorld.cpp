@@ -1,8 +1,16 @@
 ﻿#include "stdafx.h"
 #include "HelloWorld.h"
+#include <stdio.h>
 
-int main(int argc, char const *argv[])
+HelloWorld::HelloWorld()
 {
-    /* code */
-    return 0;
+}
+
+HelloWorld::~HelloWorld()
+{
+}
+
+void HelloWorld::fun()
+{
+    printf("HelloWorld.fun():123!");
 }
