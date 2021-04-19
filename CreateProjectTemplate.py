@@ -77,7 +77,7 @@ def main(argv):
     # 要执行替换的文件夹目录
     abs_file = __file__
     # print("abs path is %s" % (__file__))
-    abs_dir = abs_file[:abs_file.rfind("\\")]   # windows下用\\分隔路径，linux下用/分隔路径
+    abs_dir = os.path.abspath(os.path.dirname(__file__))
 
     # 是否设置了名字参数
     isSetNameParam = False

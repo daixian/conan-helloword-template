@@ -1,7 +1,7 @@
 # conan-helloword-template
 conan的初始工程模板。创建一个名字为ProjectName的命令如下：
 ``` bash
-python ./CreateProjectTemplate.py -d ProjectName
+python ./CreateProjectTemplate.py -n ProjectName
 ```
 
 ## 在VSCode中使用Conan
