@@ -20,37 +20,42 @@ class ReplaceNameProc:
     def Replace(self,):
         '''执行所有位置的替换'''
         # 下面这些文件都是要替换名字的
-        self.ReplaceOneFile(os.path.join(self.dirPath, "CMakeLists.txt"))
-        self.ReplaceOneFile(os.path.join(self.dirPath, "conanfile.py"))
-        self.ReplaceOneFile(os.path.join(
-            self.dirPath, "test_package", "conanfile.py"))
-        self.ReplaceOneFile(os.path.join(
-            self.dirPath, "test_package", "CMakeLists.txt"))
-        self.ReplaceOneFile(os.path.join(
-            self.dirPath, "src", "CMakeLists.txt"))
-        self.ReplaceOneFile(os.path.join(
-            self.dirPath, "src", "HelloWorld", "CMakeLists.txt"))
-        self.ReplaceOneFile(os.path.join(
-            self.dirPath, "src", "App", "CMakeLists.txt"))
-        self.ReplaceOneFile(os.path.join(
-            self.dirPath, "src", "Shared", "CMakeLists.txt"))
+        self.ReplaceOneFile(os.path.join(self.dirPath, "CMakeLists.txt"),
+                            self.defaultName, self.projectName)
+        self.ReplaceOneFile(os.path.join(self.dirPath, "conanfile.py"),
+                            self.defaultName, self.projectName)
+        self.ReplaceOneFile(os.path.join(self.dirPath, "test_package", "conanfile.py"),
+                            self.defaultName, self.projectName)
+        self.ReplaceOneFile(os.path.join(self.dirPath, "test_package", "CMakeLists.txt"),
+                            self.defaultName, self.projectName)
+        self.ReplaceOneFile(os.path.join(self.dirPath, "src", "CMakeLists.txt"),
+                            self.defaultName, self.projectName)
+        self.ReplaceOneFile(os.path.join(self.dirPath, "src", "HelloWorld", "CMakeLists.txt"),
+                            self.defaultName, self.projectName)
+        self.ReplaceOneFile(os.path.join(self.dirPath, "src", "App", "CMakeLists.txt"),
+                            self.defaultName, self.projectName)
+        self.ReplaceOneFile(os.path.join(self.dirPath, "src", "Shared", "CMakeLists.txt"),
+                            self.defaultName, self.projectName)
+
+        self.ReplaceOneFile(os.path.join(self.dirPath, "src", "App", "HelloWorldExec.cpp"),
+                            "HelloWorld/HelloWorld.h", self.projectName+"/HelloWorld.h")
 
         # 修改文件夹的名字
         os.renames(os.path.join(self.dirPath, "src", "HelloWorld"),
                    os.path.join(self.dirPath, "src", self.projectName),
                    )
 
-    def ReplaceOneFile(self, filePath: str):
+    def ReplaceOneFile(self, filePath: str, matchingStr: str, replaceStr: str):
         '''执行某一个文件里的替换'''
         f1 = open(filePath, "r", encoding='utf-8')
         content = f1.read()
         f1.close()
 
         # 替换正好匹配的情况
-        conRep = content.replace(self.defaultName, self.projectName)
+        conRep = content.replace(matchingStr, replaceStr)
         # 替换全大写的情况
-        conRep = conRep.replace(self.defaultName.upper(),
-                                self.projectName.upper())
+        conRep = conRep.replace(matchingStr.upper(),
+                                replaceStr.upper())
         with open(filePath, "w", encoding='utf-8') as f2:
             f2.write(conRep)
 
