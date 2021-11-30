@@ -14,7 +14,7 @@ endif()
 # add_definitions(-D DLOG_UTF8)
 
 # 先自动搜索文件添加算了
-FILE(GLOB_RECURSE SOURCE_LIST "*.cpp" "*.h" "*.hpp" "*.c" "*.cc")
+FILE(GLOB_RECURSE SOURCE_LIST "*.cpp" "*.h" "*.hpp" "*.c" "*.cc" "*.rc" "*.def")
 
 # 这个函数在VS工程里生成一个文件路径
 function(assign_source_group)
