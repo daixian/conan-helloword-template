@@ -24,6 +24,10 @@ class TestEnvironment : public ::testing::Environment
     virtual void SetUp()
     {
     }
+    
+    virtual void TearDown()
+    {
+    }
 };
 
 int main(int argc, char* argv[])
